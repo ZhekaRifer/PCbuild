@@ -68,5 +68,20 @@ public class PCController : MonoBehaviour
     {
         MainWindow.SetActive(false);
         Window.SetActive(true);
+        if(Window == ShopWindow)
+        {
+            ShopWindow.GetComponentInChildren<ShopContainer>().TestCards();
+        }
     }
+
+    public void OnBackToMainWindow(GameObject currentWindow)
+    {
+        currentWindow.SetActive(false);
+        MainWindow.SetActive(true);
+        if(currentWindow == ShopWindow)
+        {
+            ShopWindow.GetComponentInChildren<ShopContainer>().RemoveAllCards();
+        } 
+    }
+
 }
